@@ -5,11 +5,11 @@ import lombok.Getter;
 @Getter
 public class StarSearchResponse {
 
-	private Long starId;
+	private final Long starId;
 
-	private Long userId;
+	private final Long userId;
 
-	private short count;
+	private final short count;
 
 	public StarSearchResponse(Long starId, Long userId, short count) {
 		this.starId = starId;

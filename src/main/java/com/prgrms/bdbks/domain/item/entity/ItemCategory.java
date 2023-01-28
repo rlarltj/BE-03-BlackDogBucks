@@ -51,7 +51,7 @@ public class ItemCategory {
 	private ItemType itemType;
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Item> items = new ArrayList<>();
+	private final List<Item> items = new ArrayList<>();
 
 	@Builder
 	public ItemCategory(String name, String englishName, ItemType itemType) {

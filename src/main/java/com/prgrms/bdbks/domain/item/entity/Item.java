@@ -54,11 +54,11 @@ public class Item extends AbstractTimeColumn {
 
 	@NotNull
 	@Column(name = "is_best", nullable = false, columnDefinition = "bit")
-	private Boolean isBest = false;
+	private final Boolean isBest = false;
 
 	@NotNull
 	@Column(name = "is_new", nullable = false, columnDefinition = "bit")
-	private Boolean isNew = false;
+	private final Boolean isNew = false;
 
 	@NotNull
 	@Column(name = "description", nullable = false)

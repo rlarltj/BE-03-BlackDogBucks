@@ -16,18 +16,14 @@ import lombok.Getter;
 public class OptionResponse {
 
 	private final CoffeeOption coffee;
-
-	private List<SyrupsOption> syrup;
-
 	private final MilkOption milk;
-
 	private final List<SizeOption> size = Arrays.stream(BeverageOption.Size.values())
 		.map(cupSize -> new SizeOption(cupSize.getEnglishName(), cupSize.getAmount()))
 		.collect(Collectors.toList());
-
 	private final List<String> cupType = Arrays.stream(BeverageOption.CupType.values())
 		.map(BeverageOption.CupType::getKoreaName)
 		.collect(Collectors.toList());
+	private List<SyrupsOption> syrup;
 
 	public OptionResponse(BeverageOption.Coffee espressoType, Integer espressoShotCount, Integer vanillaSyrupCount,
 		Integer classicSyrupCount, Integer hazelnutSyrupCount, BeverageOption.Milk milkType,
@@ -60,11 +56,11 @@ public class OptionResponse {
 	@Getter
 	public static class CoffeeOption {
 
-		private String defaultType;
+		private final String defaultType;
 
-		private Integer defaultEspressoCount;
+		private final Integer defaultEspressoCount;
 
-		private List<String> options;
+		private final List<String> options;
 
 		public CoffeeOption(BeverageOption.Coffee espressoType, Integer espressoShotCount) {
 			this.defaultType = espressoType.getKorName();
@@ -90,13 +86,13 @@ public class OptionResponse {
 	@Getter
 	public static class MilkOption {
 
-		private String defaultType;
+		private final String defaultType;
 
-		private List<String> options;
+		private final List<String> options;
 
-		private String defaultMilkAmountOptionName;
+		private final String defaultMilkAmountOptionName;
 
-		private List<String> amountOptions;
+		private final List<String> amountOptions;
 
 		public MilkOption(BeverageOption.Milk defaultMilk, BeverageOption.MilkAmount defaultAmount) {
 			this.defaultType = defaultMilk.getKorName();
@@ -112,8 +108,8 @@ public class OptionResponse {
 
 	@Getter
 	public static class SizeOption {
-		private String name;
-		private String amount;
+		private final String name;
+		private final String amount;
 
 		public SizeOption(String name, String amount) {
 			this.name = name;

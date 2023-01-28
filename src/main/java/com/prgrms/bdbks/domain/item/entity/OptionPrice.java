@@ -7,8 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class OptionPrice {
 
-    private final int espressoPrice;
+	private final int espressoPrice;
 
-    private final int syrupPrice;
+	private final int syrupPrice;
 
 }

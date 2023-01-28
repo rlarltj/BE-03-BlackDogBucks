@@ -53,7 +53,7 @@ public class Order extends AbstractTimeColumn {
 	private int totalPrice;
 
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<OrderItem> orderItems = new ArrayList<>();
+	private final List<OrderItem> orderItems = new ArrayList<>();
 
 	@Builder
 	protected Order(Long coupon, Long userId, String storeId, int totalPrice) {
