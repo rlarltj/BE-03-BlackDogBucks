@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import com.prgrms.bdbks.common.exception.AuthorityNotFoundException;
 import com.prgrms.bdbks.common.exception.JwtValidateException;
+import com.prgrms.bdbks.config.jwt.JwtConfigure;
 import com.prgrms.bdbks.domain.user.entity.User;
 
 import io.jsonwebtoken.Claims;
@@ -48,7 +49,7 @@ public class TokenProvider {
 
 		checkNotNull(jwtConfigure.getSecret(), "비밀키는 null일 수 없습니다.");
 		checkArgument(jwtConfigure.getTokenValidityInSeconds() > 0, "유효시간은 0보다 커야 합니다.");
-
+		
 		byte[] keyBytes = Decoders.BASE64.decode(jwtConfigure.getSecret());
 
 		this.authoritiesKey = jwtConfigure.getAuthoritiesKey();
