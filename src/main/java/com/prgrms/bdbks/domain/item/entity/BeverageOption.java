@@ -84,10 +84,10 @@ public interface BeverageOption {
 		STORE("매장컵"),
 		DISPOSABLE("일회용컵");
 
-		private final String koreaName;
+		private final String korName;
 
 		CupType(String koreaName) {
-			this.koreaName = koreaName;
+			this.korName = koreaName;
 		}
 
 	}

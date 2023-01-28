@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.prgrms.bdbks.common.exception.DuplicateInsertException;
+import com.prgrms.bdbks.common.exception.EntityNotFoundException;
 import com.prgrms.bdbks.domain.user.converter.UserMapper;
 import com.prgrms.bdbks.domain.user.dto.UserCreateRequest;
 import com.prgrms.bdbks.domain.user.entity.User;
@@ -53,5 +54,11 @@ public class DefaultUserService implements UserService {
 			return Optional.empty();
 		}
 		return Optional.empty();
+	}
+
+	@Override
+	@Transactional
+	public User findUserById(Long userId) {
+		return userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException(User.class, userId));
 	}
 }

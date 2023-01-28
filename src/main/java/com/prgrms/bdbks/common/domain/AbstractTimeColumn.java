@@ -22,7 +22,7 @@ public abstract class AbstractTimeColumn {
 	private LocalDateTime createdAt;
 
 	@LastModifiedDate
-	@Column(nullable = false)
+	@Column
 	private LocalDateTime updatedAt;
 
 }

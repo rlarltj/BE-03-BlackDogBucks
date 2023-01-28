@@ -21,7 +21,7 @@ public class OptionResponse {
 		.map(cupSize -> new SizeOption(cupSize.getEnglishName(), cupSize.getAmount()))
 		.collect(Collectors.toList());
 	private final List<String> cupType = Arrays.stream(BeverageOption.CupType.values())
-		.map(BeverageOption.CupType::getKoreaName)
+		.map(BeverageOption.CupType::getKorName)
 		.collect(Collectors.toList());
 	private List<SyrupsOption> syrup;
 
